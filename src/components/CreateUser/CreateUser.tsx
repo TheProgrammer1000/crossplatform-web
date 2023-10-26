@@ -9,10 +9,8 @@ export const CreateUser = () => {
 	const [submitted, setSubmitted] = useState(false)
 
 	const submitHandler = () => {
-		console.log(firstName)
-		console.log(lastName)
 		if (firstName !== '' && lastName !== '') {
-			setFeedback(`Hej ${firstName} ${lastName}, välkommen!`)
+			setFeedback(`Hej, ${firstName} ${lastName}, välkommen!`)
 			setSubmitted(true)
 			setFirstName('')
 			setLastName('')
@@ -25,33 +23,24 @@ export const CreateUser = () => {
 		}
 	}	
 
-	const clearInput = () => {
-		setFirstName('')
-	}
-
 	return (
 		<div className={styles.container}>
-			<p>{`Tack för din beställning av ${10} stycken ${'Banana'}`}</p>
 			<TextInput
 				value={firstName}	
 				placeholder="Firstname"
-				styling={{ marginBottom: '1rem' }}
-				onButtonClick={() => clearInput()}	
-				changeLastName={(value) => setLastName(value)}	
 				onInput={(event) => {
 					setFirstName(event.target.value)
 				}}
 			/>
 			<TextInput
 				value={lastName}
-				styling={{ marginBottom: '5rem', backgroundColor: 'red' }}
 				placeholder="Lastname"
 				onInput={(event) => {
 					setLastName(event.target.value)
 				}}
 			/>
-			<button onClick={submitHandler}>Tjoho!!</button>	
-			<p style={{ color: submitted ? 'green' : 'red' }}>{feedback}</p>
+			<button className={styles.submitButton} onClick={submitHandler}>Lägg till användare</button>	
+			<p className={styles.feedbackText} style={{ color: submitted ? '#3c425c' : '#ed4e59' }}>{feedback}</p>
 		</div>
 	)
 }
