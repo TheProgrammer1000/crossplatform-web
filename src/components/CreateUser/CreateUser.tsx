@@ -1,8 +1,11 @@
 import React, { useState } from "react"
 import { TextInput } from "../TextInput"
 import styles from './CreateUser.module.css'
+import { useCreateUserMutation } from "../../store/api/usersApi"
 
 export const CreateUser = () => {
+	const [createUser] = useCreateUserMutation()
+
 	const [firstName, setFirstName] = useState('')
 	const [lastName, setLastName]	= useState('')
 	const [feedback, setFeedback] = useState('')
@@ -17,6 +20,14 @@ export const CreateUser = () => {
 			setTimeout(() => {
 				setFeedback('')
 			}, 5000)	
+
+			createUser({
+				user: {
+					firstName: firstName,
+					lastName: lastName
+				}
+			})
+
 		} else {
 			setSubmitted(false)
 			setFeedback('Du måste fylla i alla fält!')

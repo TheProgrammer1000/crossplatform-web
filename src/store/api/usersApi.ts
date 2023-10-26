@@ -26,7 +26,7 @@ export const usersApi = createApi({
 			query: ({ user }) => ({
 				baseUrl: '',
 				url: 'users',
-				method: 'POST',
+				method: 'POST', // PUT = modifiera data - DELETE = ta bort data
 				body: user
 			}),
 		}),
