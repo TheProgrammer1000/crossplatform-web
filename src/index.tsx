@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
-import './firebase-config'
+import './firebase-config';
 import { Provider } from 'react-redux';
 import { store } from './store/store';
 
@@ -13,11 +13,11 @@ const root = ReactDOM.createRoot(
 );
 
 root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </React.StrictMode>
+  //<React.StrictMode>
+  <Provider store={store}>
+    <App />
+  </Provider>
+  //</React.StrictMode>
 );
 
 // If you want your app to work offline and load faster, you can change
